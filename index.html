@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Yogee</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5e1ff, #d4a1f2);
+            color: #ffffff;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            text-shadow: 2px 2px 5px #000000;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            text-shadow: 1px 1px 3px #000000;
+        }
+        .fairy-button {
+            background-color: #f8c1ff;
+            border: none;
+            border-radius: 20px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+        .fairy-button:hover {
+            background-color: #ff9ff3;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .fairy-button:before, .fairy-button:after {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            top: 50%;
+            left: 50%;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s;
+            border-radius: 50%;
+        }
+        .fairy-button:before {
+            animation: fairy-hover 1s infinite alternate;
+        }
+        .fairy-button:after {
+            animation: fairy-hover 1s infinite alternate 0.5s;
+        }
+        .fairy-button:hover:before, .fairy-button:hover:after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        @keyframes fairy-hover {
+            to {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .activity-list li {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px #000000;
+            cursor: pointer;
+        }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .stars::before, .stars::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            opacity: 0.5;
+            animation: move-stars 50s linear infinite;
+        }
+        .stars::after {
+            animation-duration: 100s;
+        }
+        @keyframes move-stars {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100%, 100%); }
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-content h2 {
+            color: #8e44ad;
+            margin: 0;
+        }
+        .modal-content p {
+            color: #2c3e50;
+            font-size: 1.2em;
+        }
+        .flowers {
+            background: url('https://www.transparenttextures.com/patterns/spring-flowers.png') repeat;
+            opacity: 0.1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+    <script>
+        function showModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+        function showActivity(activity) {
+            alert('✨🌸 ' + activity + ' 🌸✨');
+        }
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container"><h1>To one of the best people I've ever met!</h1>
+        <p>Dear Yogee,</p>
+        <p>You mean the world to me. I pray all the good things will happen to you.</p>
+        <p>With love, Malishi</p>
+        <button class="fairy-button" onclick="showModal()">Click me for a surprise!</button>
+    </div>
+    <div class="stars"></div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>✨🌸 Surprise! 🌸✨</h2>
+            <p>You are amazing Yogee!</p>
+            <div class="flowers"></div>
+        </div>
+    </div>
+</body>
+</html>
